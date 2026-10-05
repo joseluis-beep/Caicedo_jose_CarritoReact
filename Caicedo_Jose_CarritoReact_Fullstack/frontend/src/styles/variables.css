@@ -1,0 +1,18 @@
+/* Paleta suave y cómoda a la vista: verdes apagados, fondo hueso y texto gris pizarra
+   (sin negro puro ni blanco puro de fondo). Contrastes AA en texto y botones. */
+:root {
+  --verde-900: #1f4d3a;
+  --verde-700: #2f6f55;
+  --verde-500: #4f9577;
+  --verde-100: #e4f0e9;
+  --amarillo: #f2c25b;
+  --rojo: #b5463c;
+  --gris-900: #2b3a42;
+  --gris-600: #5d6d75;
+  --gris-300: #cfd8d3;
+  --gris-100: #f3f6f2;
+  --blanco: #fdfefc;
+  --radio: 12px;
+  --sombra: 0 2px 12px rgba(43, 58, 66, 0.08);
+  --altura-navbar: 64px;
+}

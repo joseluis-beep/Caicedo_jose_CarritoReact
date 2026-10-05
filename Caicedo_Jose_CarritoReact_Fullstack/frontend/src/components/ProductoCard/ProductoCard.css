@@ -1,0 +1,82 @@
+.producto {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--blanco);
+  border-radius: 16px; box-shadow: var(--sombra);
+  animation: aparecer 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.producto:hover { transform: translateY(-5px); box-shadow: 0 10px 26px rgba(43, 58, 66, 0.16); }
+
+/* ---------- Zona visual ---------- */
+.producto__media {
+  position: relative; display: grid; place-items: center;
+  padding: 22px 16px 14px;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.85), transparent 62%),
+    var(--fondo, var(--verde-100));
+}
+.producto__arte {
+  width: 132px; height: 132px;
+  animation: flotar 4.5s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * -600ms);
+}
+.producto__ilustracion {
+  display: block; overflow: visible;
+  filter: drop-shadow(0 6px 6px rgba(43, 58, 66, 0.18));
+  transition: transform 0.35s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+.producto:hover .producto__ilustracion { transform: scale(1.1) rotate(-3deg); }
+.producto__ilustracion--agregado { animation: salto 0.6s cubic-bezier(0.3, 1.4, 0.5, 1); }
+.producto--agotado .producto__ilustracion { filter: grayscale(0.85) opacity(0.7); }
+
+.producto__categoria {
+  position: absolute; top: 12px; left: 12px;
+  padding: 3px 10px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85); color: var(--verde-900);
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.3px;
+}
+.producto__chip {
+  position: absolute; top: 12px; right: 12px;
+  padding: 3px 10px; border-radius: 999px;
+  font-size: 0.72rem; font-weight: 800;
+  animation: latir 1.8s ease-in-out infinite;
+}
+.producto__chip--ultimas { background: var(--amarillo); color: var(--gris-900); }
+.producto__chip--agotado { background: var(--rojo); color: #fff; animation: none; }
+
+/* ---------- Cuerpo ---------- */
+.producto__cuerpo { display: flex; flex: 1; flex-direction: column; gap: 6px; padding: 16px 18px 18px; }
+.producto__nombre { margin: 0; font-size: 1.08rem; }
+.producto__precio { margin: 0; font-size: 1.35rem; font-weight: 800; color: var(--verde-700); }
+
+.producto__stock p { margin: 0 0 6px; font-size: 0.88rem; color: var(--gris-600); }
+.producto__en-carrito { color: var(--verde-700); font-weight: 600; }
+.producto__barra { height: 6px; border-radius: 999px; background: var(--gris-300); overflow: hidden; }
+.producto__barra span {
+  display: block; height: 100%; border-radius: inherit;
+  background: linear-gradient(90deg, var(--verde-500), var(--verde-700));
+  transition: width 0.45s ease;
+}
+
+.producto__acciones { display: flex; gap: 10px; align-items: center; margin-top: auto; padding-top: 12px; }
+.producto__agregar {
+  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 14px; border: 0; border-radius: 10px;
+  background: var(--verde-700); color: var(--blanco); font-weight: 700;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.producto__agregar:hover:not(:disabled) { background: var(--verde-900); }
+.producto__agregar:active:not(:disabled) { transform: scale(0.95); }
+.producto__agregar:disabled { background: var(--gris-300); color: var(--gris-600); }
+
+/* ---------- Animaciones ---------- */
+@keyframes aparecer { from { opacity: 0; transform: translateY(18px) scale(0.97); } to { opacity: 1; transform: none; } }
+@keyframes flotar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes salto {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.22) translateY(-10px) rotate(-6deg); }
+  60% { transform: scale(0.94) translateY(2px); }
+  100% { transform: scale(1); }
+}
+@keyframes latir { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }

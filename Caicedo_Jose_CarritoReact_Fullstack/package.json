@@ -1,0 +1,16 @@
+{
+  "name": "tienda-palmira-fullstack",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Carrito de compras con validaciones de stock – Frontend React + Backend Express (sin base de datos)",
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "start": "npm start -w backend",
+    "build": "npm run build -w frontend",
+    "test": "npm test -w backend && npm test -w frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
