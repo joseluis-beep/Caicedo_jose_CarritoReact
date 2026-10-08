@@ -17,7 +17,7 @@ Reto práctico React · SENA – CBI Palmira · Desarrollo Front-End con React
 Requisitos: Node.js 18 o superior.
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone <[URL_DEL_REPOSITORIO](https://github.com/joseluis-beep/Caicedo_jose_CarritoReact.git)>
 cd Caicedo_Jose_CarritoReact_Fullstack
 npm install          # instala frontend y backend (npm workspaces)
 npm run dev          # frontend en http://localhost:5173 y API en http://localhost:3001
